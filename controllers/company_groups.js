@@ -56,7 +56,7 @@ const updateCompanyGroup = async (req, res) => {
     const now = new Date();
     const updated = date.format(now, "YYYY/MM/DD HH:mm:ss");
     const query = await db.query(
-      `UPDATE "Company Groups" SET "Name"=($2), "Updated"=($2) WHERE id=($1) RETURNING *`,
+      `UPDATE "Company Groups" SET "Name"=($2), "Updated"=($3) WHERE id=($1) RETURNING *`,
       [id, name, updated]
     );
     res.status(StatusCodes.OK).json({ companyGroup: query.rows });

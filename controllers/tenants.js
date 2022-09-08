@@ -6,7 +6,9 @@ const date = require("date-and-time");
 const getAllTenants = async (req, res) => {
   try {
     const query = await db.query(`SELECT * FROM "Tenants" `);
-    res.status(StatusCodes.OK).json({ tenants: query.rows });
+    res
+      .status(StatusCodes.OK)
+      .json({ count: query.rows.length, tenants: query.rows });
   } catch (error) {
     console.log(error);
   }

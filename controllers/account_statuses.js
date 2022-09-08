@@ -6,7 +6,9 @@ const date = require("date-and-time");
 const getAllAccountStatuses = async (req, res) => {
   try {
     const query = await db.query(`SELECT * FROM "Account Statuses" `);
-    res.status(StatusCodes.OK).json({ accountStatuses: query.rows });
+    res
+      .status(StatusCodes.OK)
+      .json({ count: query.rows.length, accountStatuses: query.rows });
   } catch (error) {
     console.log(error);
   }
