@@ -43,8 +43,11 @@ const createCompany = async (req, res) => {
   } catch (error) {
     console.log(error);
     if (error.code === "23503") {
-      res.status(StatusCodes.NOT_ACCEPTABLE).json({ msg: error.detail });
+      return res.status(StatusCodes.NOT_ACCEPTABLE).json({ msg: error.detail });
     }
+    res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ msg: "Sorry, error occurred in our server" });
   }
 };
 
@@ -62,8 +65,11 @@ const updateCompany = async (req, res) => {
   } catch (error) {
     console.log(error);
     if (error.code === "23503") {
-      res.status(StatusCodes.NOT_ACCEPTABLE).json({ msg: error.detail });
+      return res.status(StatusCodes.NOT_ACCEPTABLE).json({ msg: error.detail });
     }
+    res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ msg: "Sorry, error occurred in our server" });
   }
 };
 
