@@ -7,7 +7,7 @@ const {
   createSchemeContributionOption,
   updateSchemeContributionOption,
   deleteSchemeContributionOption,
-} = require("../controllers/shceme_contribution_options");
+} = require("../controllers/scheme_contribution_options");
 
 router
   .route("/")

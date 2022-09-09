@@ -19,6 +19,7 @@ const companySharesRouter = require("./routes/company_shares");
 const gendersRouter = require("./routes/genders");
 const employeesRouter = require("./routes/employees");
 const schemeContributionOptionsRouter = require("./routes/scheme_contribution_options");
+const schemeEligibilityTypesRouter = require("./routes/scheme_eligibility_types");
 
 // endpoints provided
 app.use("/api/v1/users", userRouter);
@@ -35,6 +36,7 @@ app.use("/api/v1/company-shares", companySharesRouter);
 app.use("/api/v1/genders", gendersRouter);
 app.use("/api/v1/employees", employeesRouter);
 app.use("/api/v1/scheme-contribution-options", schemeContributionOptionsRouter);
+app.use("/api/v1/scheme-eligibility-types", schemeEligibilityTypesRouter);
 
 const PORT = 5000 || process.env.PORT;
 
