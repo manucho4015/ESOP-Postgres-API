@@ -15,6 +15,7 @@ const resourcesRouter = require("./routes/resources");
 const resourceActionsRouter = require("./routes/resource_actions");
 const rolesRouter = require("./routes/roles");
 const permissionsRouter = require("./routes/permissions");
+const companySharesRouter = require("./routes/company_shares");
 
 // endpoints provided
 app.use("/api/v1/users", userRouter);
@@ -27,6 +28,7 @@ app.use("/api/v1/resources", resourcesRouter);
 app.use("/api/v1/resource-actions", resourceActionsRouter);
 app.use("/api/v1/roles", rolesRouter);
 app.use("/api/v1/permissions", permissionsRouter);
+app.use("/api/v1/company-shares", companySharesRouter);
 
 const PORT = 5000 || process.env.PORT;
 
