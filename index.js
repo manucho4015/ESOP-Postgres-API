@@ -17,6 +17,7 @@ const rolesRouter = require("./routes/roles");
 const permissionsRouter = require("./routes/permissions");
 const companySharesRouter = require("./routes/company_shares");
 const gendersRouter = require("./routes/genders");
+const employeesRouter = require("./routes/employees");
 
 // endpoints provided
 app.use("/api/v1/users", userRouter);
@@ -31,6 +32,7 @@ app.use("/api/v1/roles", rolesRouter);
 app.use("/api/v1/permissions", permissionsRouter);
 app.use("/api/v1/company-shares", companySharesRouter);
 app.use("/api/v1/genders", gendersRouter);
+app.use("/api/v1/employees", employeesRouter);
 
 const PORT = 5000 || process.env.PORT;
 
