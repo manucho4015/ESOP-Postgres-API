@@ -20,7 +20,7 @@ const getPermission = async (req, res) => {
     const query = await db.query(`SELECT * FROM "Permissions" where id=($1)`, [
       id,
     ]);
-    res.status(StatusCodes.OK).json({ permission: query.rows });
+    res.status(StatusCodes.OK).json({ permission: query.rows[0] });
   } catch (error) {
     console.log(error);
   }
