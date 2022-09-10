@@ -21,7 +21,7 @@ const getAccountStatus = async (req, res) => {
       `SELECT * FROM "Account Statuses" where id=($1) `,
       [id]
     );
-    res.status(StatusCodes.OK).json({ accountStatus: query.rows });
+    res.status(StatusCodes.OK).json({ accountStatus: query.rows[0] });
   } catch (error) {
     console.log(error);
   }
