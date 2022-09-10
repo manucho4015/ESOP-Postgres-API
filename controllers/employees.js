@@ -18,7 +18,7 @@ const getEmployee = async (req, res) => {
     const query = await db.query(`SELECT * FROM "Employees" where id=($1) `, [
       id,
     ]);
-    res.status(StatusCodes.OK).json({ employee: query.rows });
+    res.status(StatusCodes.OK).json({ employee: query.rows[0] });
   } catch (error) {
     console.log(error);
   }
