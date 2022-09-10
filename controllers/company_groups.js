@@ -21,7 +21,7 @@ const getCompanyGroup = async (req, res) => {
       `SELECT * FROM "Company Groups" where id=($1)`,
       [id]
     );
-    res.status(StatusCodes.OK).json({ companyGroup: query.rows });
+    res.status(StatusCodes.OK).json({ companyGroup: query.rows[0] });
   } catch (error) {
     console.log(error);
   }
