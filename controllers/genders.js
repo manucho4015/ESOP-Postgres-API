@@ -18,7 +18,7 @@ const getGender = async (req, res) => {
   const { id } = req.params;
   try {
     const query = await db.query(`SELECT * FROM "Genders" where id=($1)`, [id]);
-    res.status(StatusCodes.OK).json({ gender: query.rows });
+    res.status(StatusCodes.OK).json({ gender: query.rows[0] });
   } catch (error) {
     console.log(error);
   }
