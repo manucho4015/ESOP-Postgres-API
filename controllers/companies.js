@@ -20,7 +20,7 @@ const getCompany = async (req, res) => {
     const query = await db.query(`SELECT * FROM "Companies" where id=($1)`, [
       id,
     ]);
-    res.status(StatusCodes.OK).json({ company: query.rows });
+    res.status(StatusCodes.OK).json({ company: query.rows[0] });
   } catch (error) {
     console.log(error);
   }
