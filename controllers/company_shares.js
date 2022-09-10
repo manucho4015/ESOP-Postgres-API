@@ -21,7 +21,7 @@ const getCompanyShare = async (req, res) => {
       `SELECT * FROM "Company Shares" where id=($1)`,
       [id]
     );
-    res.status(StatusCodes.OK).json({ companyShare: query.rows });
+    res.status(StatusCodes.OK).json({ companyShare: query.rows[0] });
   } catch (error) {
     console.log(error);
   }
