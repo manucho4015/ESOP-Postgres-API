@@ -1,5 +1,5 @@
 const { StatusCodes } = require("http-status-codes");
-const db = require("../connect/db");
+const db = require("../connect/heroku_db");
 const uniqid = require("uniqid");
 const date = require("date-and-time");
 
