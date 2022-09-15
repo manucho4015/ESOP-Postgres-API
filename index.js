@@ -102,7 +102,7 @@ app.use(
 );
 app.use("/api/v1/schemes", authenticationMiddleware, schemesRouter);
 
-const PORT = 5000 || process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 app.use(errorHandlerMiddleware);
 
