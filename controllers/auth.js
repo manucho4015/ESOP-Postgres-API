@@ -22,7 +22,7 @@ const login = async (req, res) => {
   }
 
   const token = jwt.sign({ email: email }, process.env.JWT_SECRET, {
-    expiresIn: "1h",
+    expiresIn: process.env.JWT_LIFETIME,
   });
   res.status(StatusCodes.OK).json({ msg: "Logged In", token });
 };
