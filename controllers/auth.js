@@ -3,7 +3,7 @@ const { StatusCodes } = require("http-status-codes");
 const bcrypt = require("bcryptjs");
 const CustomAPIError = require("../errors/custom-error");
 
-const db = require("../connect/db");
+const db = require("../connect/heroku_db");
 
 const login = async (req, res) => {
   const { email, password } = req.body;
