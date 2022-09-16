@@ -1,0 +1,2510 @@
+openapi: 3.0.0
+info:
+  title: ESOP Postgres API
+  contact: {}
+  version: '1.2'
+servers:
+- url: https://esop-postgres.herokuapp.com/api/v1
+  variables: {}
+paths:
+  /users:
+    get:
+      tags:
+      - Users
+      summary: Get Users
+      operationId: GetUsers
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    post:
+      tags:
+      - Auth
+      summary: Create User
+      operationId: CreateUser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateUserRequest'
+              - example:
+                  id: 3
+                  username: mum
+                  firstName: Alisson
+                  middleName: Sharon
+                  lastName: Chiwo
+                  email: mum@gmail.com
+                  mobileNo: '0712345678'
+                  password: password
+                  userGroupId: 3
+                  tenantId: 3
+            example:
+              id: 3
+              username: mum
+              firstName: Alisson
+              middleName: Sharon
+              lastName: Chiwo
+              email: mum@gmail.com
+              mobileNo: '0712345678'
+              password: password
+              userGroupId: 3
+              tenantId: 3
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /users/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+      - Users
+      summary: Get User
+      operationId: GetUser
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    put:
+      tags:
+      - Users
+      summary: Update User
+      operationId: UpdateUser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateUserRequest'
+              - example:
+                  username: edrydo
+                  firstName: Edryd
+                  middleName: Lestyne
+                  lastName: Chiwo
+                  email: edrydo@gmail.com
+                  mobileNo: '0712345678'
+                  password: password
+                  userGroupId: 3
+                  tenantId: 3
+            example:
+              username: edrydo
+              firstName: Edryd
+              middleName: Lestyne
+              lastName: Chiwo
+              email: edrydo@gmail.com
+              mobileNo: '0712345678'
+              password: password
+              userGroupId: 3
+              tenantId: 3
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    delete:
+      tags:
+      - Users
+      summary: Delete User
+      operationId: DeleteUser
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /tenants:
+    get:
+      tags:
+      - Tenants
+      summary: Get Tenants
+      operationId: GetTenants
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    post:
+      tags:
+      - Tenants
+      summary: Create Tenant
+      operationId: CreateTenant
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateTenantRequest'
+              - example:
+                  id: 3
+                  name: Kapsabet High School
+                  contact: Wafula Chebukati
+                  mobileNo: '0712345678'
+                  email: chebukati@gmail.com
+                  postalAddress: 67781-556246
+                  location: Kapsabet, Nakuru
+                  geoCoords: 35482, 498853
+            example:
+              id: 3
+              name: Kapsabet High School
+              contact: Wafula Chebukati
+              mobileNo: '0712345678'
+              email: chebukati@gmail.com
+              postalAddress: 67781-556246
+              location: Kapsabet, Nakuru
+              geoCoords: 35482, 498853
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /tenants/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+      - Tenants
+      summary: Get Tenant
+      operationId: GetTenant
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    put:
+      tags:
+      - Tenants
+      summary: Update Tenant
+      operationId: UpdateTenant
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateTenantRequest'
+              - example:
+                  name: Kapsabet High
+                  contact: Wafula Chebukati
+                  mobileNo: '0712345678'
+                  email: chebukati@gmail.com
+                  postalAddress: 67781-556246
+                  location: Kapsabet, Nakuru
+                  geoCoords: 35482, 498853
+            example:
+              name: Kapsabet High
+              contact: Wafula Chebukati
+              mobileNo: '0712345678'
+              email: chebukati@gmail.com
+              postalAddress: 67781-556246
+              location: Kapsabet, Nakuru
+              geoCoords: 35482, 498853
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    delete:
+      tags:
+      - Tenants
+      summary: Delete Tenant
+      operationId: DeleteTenant
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /account-statuses:
+    get:
+      tags:
+      - Account Statuses
+      summary: Get Account Statuses
+      operationId: GetAccountStatuses
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    post:
+      tags:
+      - Account Statuses
+      summary: Create Account Status
+      operationId: CreateAccountStatus
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateAccountStatusRequest'
+              - example:
+                  name: Trial 3
+            example:
+              name: Trial 3
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /account-statuses/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+      - Account Statuses
+      summary: Get Account Status
+      operationId: GetAccountStatus
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    put:
+      tags:
+      - Account Statuses
+      summary: Update Account Status
+      operationId: UpdateAccountStatus
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateAccountStatusRequest'
+              - example:
+                  name: Trial 3-1
+            example:
+              name: Trial 3-1
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    delete:
+      tags:
+      - Account Statuses
+      summary: Delete Account Status
+      operationId: DeleteAccountStatus
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /company-groups:
+    get:
+      tags:
+      - Company Groups
+      summary: Get Company Groups
+      operationId: GetCompanyGroups
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    post:
+      tags:
+      - Company Groups
+      summary: Create Company Group
+      operationId: CreateCompanyGroup
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateCompanyGroupRequest'
+              - example:
+                  name: Modern Coast Group
+            example:
+              name: Modern Coast Group
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /company-groups/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+      - Company Groups
+      summary: Get Company Group
+      operationId: GetCompanyGroup
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    put:
+      tags:
+      - Company Groups
+      summary: Update Company Group
+      operationId: UpdateCompanyGroup
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateCompanyGroupRequest'
+              - example:
+                  name: Modern Coast Groups
+            example:
+              name: Modern Coast Groups
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    delete:
+      tags:
+      - Company Groups
+      summary: Delete Company Group
+      operationId: DeleteCompanyGroup
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /companies:
+    get:
+      tags:
+      - Companies
+      summary: Get Companies
+      operationId: GetCompanies
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    post:
+      tags:
+      - Companies
+      summary: Create Company
+      operationId: CreateCompany
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateCompanyRequest'
+              - example:
+                  name: Test 1
+                  accountStatusId: 1
+                  companyGroupId: xe8t2bsl7sw52nc
+            example:
+              name: Test 1
+              accountStatusId: 1
+              companyGroupId: xe8t2bsl7sw52nc
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /companies/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+      - Companies
+      summary: Get Company
+      operationId: GetCompany
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    put:
+      tags:
+      - Companies
+      summary: Update Company
+      operationId: UpdateCompany
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateCompanyRequest'
+              - example:
+                  name: Test 2
+                  accountStatusId: 2
+                  companyGroupId: xe8t2bsl7sw52nc
+            example:
+              name: Test 2
+              accountStatusId: 2
+              companyGroupId: xe8t2bsl7sw52nc
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    delete:
+      tags:
+      - Companies
+      summary: Delete Company
+      operationId: DeleteCompany
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /resources:
+    get:
+      tags:
+      - Resources
+      summary: Get Resources
+      operationId: GetResources
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    post:
+      tags:
+      - Resources
+      summary: Create Resources
+      operationId: CreateResources
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateResourcesRequest'
+              - example:
+                  name: Users
+            example:
+              name: Users
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /resources/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+      - Resources
+      summary: Get Resource
+      operationId: GetResource
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    put:
+      tags:
+      - Resources
+      summary: Update Resource
+      operationId: UpdateResource
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateResourceRequest'
+              - example:
+                  name: Users 1
+            example:
+              name: Users 1
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    delete:
+      tags:
+      - Resources
+      summary: Delete Resource
+      operationId: DeleteResource
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /resource-actions:
+    get:
+      tags:
+      - Resource Actions
+      summary: Get Resource Actions
+      operationId: GetResourceActions
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    post:
+      tags:
+      - Resource Actions
+      summary: Create Resource Action
+      operationId: CreateResourceAction
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateResourceActionRequest'
+              - example:
+                  name: Create
+            example:
+              name: Create
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /resource-actions/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+      - Resource Actions
+      summary: Get Resource Action
+      operationId: GetResourceAction
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    put:
+      tags:
+      - Resource Actions
+      summary: Update Resource Action
+      operationId: UpdateResourceAction
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateResourceActionRequest'
+              - example:
+                  name: Creates
+            example:
+              name: Creates
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    delete:
+      tags:
+      - Resource Actions
+      summary: Delete Resource Action
+      operationId: DeleteResourceAction
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /roles:
+    get:
+      tags:
+      - Roles
+      summary: Get Roles
+      operationId: GetRoles
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    post:
+      tags:
+      - Roles
+      summary: Create Role
+      operationId: CreateRole
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateRoleRequest'
+              - example:
+                  name: Head IT Department
+            example:
+              name: Head IT Department
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /roles/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+      - Roles
+      summary: Get Role
+      operationId: GetRole
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    put:
+      tags:
+      - Roles
+      summary: Update Role
+      operationId: UpdateRole
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateRoleRequest'
+              - example:
+                  name: Administrator
+            example:
+              name: Administrator
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    delete:
+      tags:
+      - Roles
+      summary: Delete Role
+      operationId: DeleteRole
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /permissions:
+    get:
+      tags:
+      - Permissions
+      summary: Get Permissions
+      operationId: GetPermissions
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    post:
+      tags:
+      - Permissions
+      summary: Create Permission
+      operationId: CreatePermission
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreatePermissionRequest'
+              - example:
+                  resourceId: xe8tdysl7tbsbus
+                  resourceActionId: xe8t7qgl7tgfwr5
+                  roleId: xe8t7qgl7tghosa
+            example:
+              resourceId: xe8tdysl7tbsbus
+              resourceActionId: xe8t7qgl7tgfwr5
+              roleId: xe8t7qgl7tghosa
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /permissions/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+      - Permissions
+      summary: Get Permission
+      operationId: GetPermission
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    put:
+      tags:
+      - Permissions
+      summary: Update Permission
+      operationId: UpdatePermission
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdatePermissionRequest'
+              - example:
+                  resourceId: xe8tdysl7tbsbus
+                  resourceActionId: xe8t7qgl7tgfwr5
+                  roleId: xe8t7qgl7tghosa
+            example:
+              resourceId: xe8tdysl7tbsbus
+              resourceActionId: xe8t7qgl7tgfwr5
+              roleId: xe8t7qgl7tghosa
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    delete:
+      tags:
+      - Permissions
+      summary: Delete Permission
+      operationId: DeletePermission
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /company-shares:
+    get:
+      tags:
+      - Company Shares
+      summary: Get Company Shares
+      operationId: GetCompanyShares
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    post:
+      tags:
+      - Company Shares
+      summary: Create Company Share
+      operationId: CreateCompanyShare
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateCompanyShareRequest'
+              - example:
+                  name: Company Share 1
+                  companyId: xe8t7y0l7ta34oz
+                  currentBalanceDerived: 100000
+            example:
+              name: Company Share 1
+              companyId: xe8t7y0l7ta34oz
+              currentBalanceDerived: 100000
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /company-shares/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+      - Company Shares
+      summary: Get Company Share
+      operationId: GetCompanyShare
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    put:
+      tags:
+      - Company Shares
+      summary: Update Company Share
+      operationId: UpdateCompanyShare
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateCompanyShareRequest'
+              - example:
+                  name: Company Share 1
+                  companyId: xe8t7y0l7ta34oz
+                  currentBalanceDerived: 120000
+            example:
+              name: Company Share 1
+              companyId: xe8t7y0l7ta34oz
+              currentBalanceDerived: 120000
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    delete:
+      tags:
+      - Company Shares
+      summary: Delete Company Share
+      operationId: DeleteCompanyShare
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /genders:
+    get:
+      tags:
+      - Genders
+      summary: Get Genders
+      operationId: GetGenders
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    post:
+      tags:
+      - Genders
+      summary: Create Gender
+      operationId: CreateGender
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateGenderRequest'
+              - example:
+                  name: Male
+            example:
+              name: Male
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /genders/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+      - Genders
+      summary: Get Gender
+      operationId: GetGender
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    put:
+      tags:
+      - Genders
+      summary: Update Gender
+      operationId: UpdateGender
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateGenderRequest'
+              - example:
+                  name: Males
+            example:
+              name: Males
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    delete:
+      tags:
+      - Genders
+      summary: Delete Gender
+      operationId: DeleteGender
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /employees:
+    get:
+      tags:
+      - Employees
+      summary: Get Employees
+      operationId: GetEmployees
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    post:
+      tags:
+      - Employees
+      summary: Create Employee
+      operationId: CreateEmployee
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateEmployeeRequest'
+              - example:
+                  name: Employee 1
+                  email: emp1@gmail.com
+                  mobileNo: '0702090922'
+                  dateOfBirth: Mon Aug 18 2014 21:11:54 GMT+0300 (East Africa Time)
+                  genderId: xe8te1cl7uajqw2
+                  companyId: xe8t7y0l7ta34oz
+                  accountStatusId: 2
+            example:
+              name: Employee 1
+              email: emp1@gmail.com
+              mobileNo: '0702090922'
+              dateOfBirth: Mon Aug 18 2014 21:11:54 GMT+0300 (East Africa Time)
+              genderId: xe8te1cl7uajqw2
+              companyId: xe8t7y0l7ta34oz
+              accountStatusId: 2
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /employees/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+      - Employees
+      summary: Get Employee
+      operationId: GetEmployee
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    put:
+      tags:
+      - Employees
+      summary: Update Employee
+      operationId: UpdateEmployee
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateEmployeeRequest'
+              - example:
+                  name: Employee 1
+                  email: emp1wiurw@gmail.com
+                  mobileNo: '0702090922'
+                  dateOfBirth: Mon Aug 18 2014 21:11:54 GMT+0300 (East Africa Time)
+                  genderId: xe8te1cl7uajqw2
+                  companyId: xe8t7y0l7ta34oz
+                  accountStatusId: 2
+            example:
+              name: Employee 1
+              email: emp1wiurw@gmail.com
+              mobileNo: '0702090922'
+              dateOfBirth: Mon Aug 18 2014 21:11:54 GMT+0300 (East Africa Time)
+              genderId: xe8te1cl7uajqw2
+              companyId: xe8t7y0l7ta34oz
+              accountStatusId: 2
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    delete:
+      tags:
+      - Employees
+      summary: Delete Employee
+      operationId: DeleteEmployee
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /scheme-contribution-options:
+    get:
+      tags:
+      - Scheme Contribution Options
+      summary: Get Scheme Contribution Options
+      operationId: GetSchemeContributionOptions
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    post:
+      tags:
+      - Scheme Contribution Options
+      summary: Create Scheme Contribution Option
+      operationId: CreateSchemeContributionOption
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateSchemeContributionOptionRequest'
+              - example:
+                  name: Option 5
+            example:
+              name: Option 5
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /scheme-contribution-options/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+      - Scheme Contribution Options
+      summary: Get Scheme Contribution Option
+      operationId: GetSchemeContributionOption
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    put:
+      tags:
+      - Scheme Contribution Options
+      summary: Update Scheme Contribution Option
+      operationId: UpdateSchemeContributionOption
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateSchemeContributionOptionRequest'
+              - example:
+                  name: Option 1-1
+            example:
+              name: Option 1-1
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    delete:
+      tags:
+      - Scheme Contribution Options
+      summary: Delete Scheme Contribution Option
+      operationId: DeleteSchemeContributionOption
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /scheme-eligibility-types:
+    get:
+      tags:
+      - Scheme Eligibility Types
+      summary: Get Scheme Eligibility Types
+      operationId: GetSchemeEligibilityTypes
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    post:
+      tags:
+      - Scheme Eligibility Types
+      summary: Create Scheme Eligibility Type
+      operationId: CreateSchemeEligibilityType
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateSchemeEligibilityTypeRequest'
+              - example:
+                  name: Eligibility Type 5
+            example:
+              name: Eligibility Type 5
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /scheme-eligibility-types/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+      - Scheme Eligibility Types
+      summary: Get Scheme Eligibility Type
+      operationId: GetSchemeEligibilityType
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    put:
+      tags:
+      - Scheme Eligibility Types
+      summary: Update Scheme Eligibility Type
+      operationId: UpdateSchemeEligibilityType
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateSchemeEligibilityTypeRequest'
+              - example:
+                  name: Type 1-1
+            example:
+              name: Type 1-1
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    delete:
+      tags:
+      - Scheme Eligibility Types
+      summary: Delete Scheme Eligibility Type
+      operationId: DeleteSchemeEligibilityType
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /share-transaction-types:
+    get:
+      tags:
+      - Share Transaction Types
+      summary: Get Share Transaction Types
+      operationId: GetShareTransactionTypes
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    post:
+      tags:
+      - Share Transaction Types
+      summary: Create Share Transaction Type
+      operationId: CreateShareTransactionType
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateShareTransactionTypeRequest'
+              - example:
+                  name: Sell
+            example:
+              name: Sell
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /share-transaction-types/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+      - Share Transaction Types
+      summary: Get Share Transaction Type
+      operationId: GetShareTransactionType
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    put:
+      tags:
+      - Share Transaction Types
+      summary: Update Share Transaction Type
+      operationId: UpdateShareTransactionType
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateShareTransactionTypeRequest'
+              - example:
+                  name: Buy 1
+            example:
+              name: Buy 1
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    delete:
+      tags:
+      - Share Transaction Types
+      summary: Delete Share Transaction Type
+      operationId: DeleteShareTransactionType
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /scheme-categories:
+    get:
+      tags:
+      - Scheme Categories
+      summary: Get Scheme Categories
+      operationId: GetSchemeCategories
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    post:
+      tags:
+      - Scheme Categories
+      summary: Create Scheme Category
+      operationId: CreateSchemeCategory
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateSchemeCategoryRequest'
+              - example:
+                  name: Scheme Category 1
+                  code: '000111'
+                  companyId: xe8t7y0l7ta34oz
+                  schemeEligibilityTypeId: xe8tnysl7ukj6bw
+                  schemeContributionOptionId: xe8thggl7uesl0o
+                  description: test category 1
+            example:
+              name: Scheme Category 1
+              code: '000111'
+              companyId: xe8t7y0l7ta34oz
+              schemeEligibilityTypeId: xe8tnysl7ukj6bw
+              schemeContributionOptionId: xe8thggl7uesl0o
+              description: test category 1
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /scheme-categories/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+      - Scheme Categories
+      summary: Get Scheme Category
+      operationId: GetSchemeCategory
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    put:
+      tags:
+      - Scheme Categories
+      summary: Update Scheme Category
+      operationId: UpdateSchemeCategory
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateSchemeCategoryRequest'
+              - example:
+                  name: Scheme Category 1-1
+                  code: '000111'
+                  companyId: xe8t7y0l7ta34oz
+                  schemeEligibilityTypeId: xe8tnysl7ukj6bw
+                  schemeContributionOptionId: xe8thggl7uesl0o
+                  description: test category 1
+            example:
+              name: Scheme Category 1-1
+              code: '000111'
+              companyId: xe8t7y0l7ta34oz
+              schemeEligibilityTypeId: xe8tnysl7ukj6bw
+              schemeContributionOptionId: xe8thggl7uesl0o
+              description: test category 1
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    delete:
+      tags:
+      - Scheme Categories
+      summary: Delete Scheme Category
+      operationId: DeleteSchemeCategory
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /schemes:
+    get:
+      tags:
+      - Schemes
+      summary: Get Schemes
+      operationId: GetSchemes
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    post:
+      tags:
+      - Schemes
+      summary: Create Scheme
+      operationId: CreateScheme
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateSchemeRequest'
+              - example:
+                  name: Scheme 1
+                  schemeCategoryId: xe8td90l7un9u9d
+                  startDate: 2021-07-12 00:00:00
+                  endDate: 2021-07-12 00:00:00
+            example:
+              name: Scheme 1
+              schemeCategoryId: xe8td90l7un9u9d
+              startDate: 2021-07-12 00:00:00
+              endDate: 2021-07-12 00:00:00
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /schemes/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    get:
+      tags:
+      - Schemes
+      summary: Get Scheme
+      operationId: GetScheme
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    put:
+      tags:
+      - Schemes
+      summary: Update Scheme
+      operationId: UpdateScheme
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateSchemeRequest'
+              - example:
+                  name: Scheme 1-1
+                  schemeCategoryId: xe8td90l7un9u9d
+                  startDate: 2021-07-12 00:00:00
+                  endDate: 2021-07-12 00:00:00
+            example:
+              name: Scheme 1-1
+              schemeCategoryId: xe8td90l7un9u9d
+              startDate: 2021-07-12 00:00:00
+              endDate: 2021-07-12 00:00:00
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    delete:
+      tags:
+      - Schemes
+      summary: Delete Scheme
+      operationId: DeleteScheme
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /login:
+    post:
+      tags:
+      - Auth
+      summary: Login
+      operationId: Login
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/LoginRequest'
+              - example:
+                  email: mum@gmail.com
+                  password: password
+            example:
+              email: mum@gmail.com
+              password: password
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+components:
+  schemas:
+    CreateUserRequest:
+      title: CreateUserRequest
+      required:
+      - id
+      - username
+      - firstName
+      - middleName
+      - lastName
+      - email
+      - mobileNo
+      - password
+      - userGroupId
+      - tenantId
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        username:
+          type: string
+        firstName:
+          type: string
+        middleName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        mobileNo:
+          type: string
+        password:
+          type: string
+        userGroupId:
+          type: integer
+          format: int32
+        tenantId:
+          type: integer
+          format: int32
+      example:
+        id: 3
+        username: mum
+        firstName: Alisson
+        middleName: Sharon
+        lastName: Chiwo
+        email: mum@gmail.com
+        mobileNo: '0712345678'
+        password: password
+        userGroupId: 3
+        tenantId: 3
+    UpdateUserRequest:
+      title: UpdateUserRequest
+      required:
+      - username
+      - firstName
+      - middleName
+      - lastName
+      - email
+      - mobileNo
+      - password
+      - userGroupId
+      - tenantId
+      type: object
+      properties:
+        username:
+          type: string
+        firstName:
+          type: string
+        middleName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        mobileNo:
+          type: string
+        password:
+          type: string
+        userGroupId:
+          type: integer
+          format: int32
+        tenantId:
+          type: integer
+          format: int32
+      example:
+        username: edrydo
+        firstName: Edryd
+        middleName: Lestyne
+        lastName: Chiwo
+        email: edrydo@gmail.com
+        mobileNo: '0712345678'
+        password: password
+        userGroupId: 3
+        tenantId: 3
+    CreateTenantRequest:
+      title: CreateTenantRequest
+      required:
+      - id
+      - name
+      - contact
+      - mobileNo
+      - email
+      - postalAddress
+      - location
+      - geoCoords
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        contact:
+          type: string
+        mobileNo:
+          type: string
+        email:
+          type: string
+        postalAddress:
+          type: string
+        location:
+          type: string
+        geoCoords:
+          type: string
+      example:
+        id: 3
+        name: Kapsabet High School
+        contact: Wafula Chebukati
+        mobileNo: '0712345678'
+        email: chebukati@gmail.com
+        postalAddress: 67781-556246
+        location: Kapsabet, Nakuru
+        geoCoords: 35482, 498853
+    UpdateTenantRequest:
+      title: UpdateTenantRequest
+      required:
+      - name
+      - contact
+      - mobileNo
+      - email
+      - postalAddress
+      - location
+      - geoCoords
+      type: object
+      properties:
+        name:
+          type: string
+        contact:
+          type: string
+        mobileNo:
+          type: string
+        email:
+          type: string
+        postalAddress:
+          type: string
+        location:
+          type: string
+        geoCoords:
+          type: string
+      example:
+        name: Kapsabet High
+        contact: Wafula Chebukati
+        mobileNo: '0712345678'
+        email: chebukati@gmail.com
+        postalAddress: 67781-556246
+        location: Kapsabet, Nakuru
+        geoCoords: 35482, 498853
+    CreateAccountStatusRequest:
+      title: CreateAccountStatusRequest
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Trial 3
+    UpdateAccountStatusRequest:
+      title: UpdateAccountStatusRequest
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Trial 3-1
+    CreateCompanyGroupRequest:
+      title: CreateCompanyGroupRequest
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Modern Coast Group
+    UpdateCompanyGroupRequest:
+      title: UpdateCompanyGroupRequest
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Modern Coast Groups
+    CreateCompanyRequest:
+      title: CreateCompanyRequest
+      required:
+      - name
+      - accountStatusId
+      - companyGroupId
+      type: object
+      properties:
+        name:
+          type: string
+        accountStatusId:
+          type: integer
+          format: int32
+        companyGroupId:
+          type: string
+      example:
+        name: Test 1
+        accountStatusId: 1
+        companyGroupId: xe8t2bsl7sw52nc
+    UpdateCompanyRequest:
+      title: UpdateCompanyRequest
+      required:
+      - name
+      - accountStatusId
+      - companyGroupId
+      type: object
+      properties:
+        name:
+          type: string
+        accountStatusId:
+          type: integer
+          format: int32
+        companyGroupId:
+          type: string
+      example:
+        name: Test 2
+        accountStatusId: 2
+        companyGroupId: xe8t2bsl7sw52nc
+    CreateResourcesRequest:
+      title: CreateResourcesRequest
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Users
+    UpdateResourceRequest:
+      title: UpdateResourceRequest
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Users 1
+    CreateResourceActionRequest:
+      title: CreateResourceActionRequest
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Create
+    UpdateResourceActionRequest:
+      title: UpdateResourceActionRequest
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Creates
+    CreateRoleRequest:
+      title: CreateRoleRequest
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Head IT Department
+    UpdateRoleRequest:
+      title: UpdateRoleRequest
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Administrator
+    CreatePermissionRequest:
+      title: CreatePermissionRequest
+      required:
+      - resourceId
+      - resourceActionId
+      - roleId
+      type: object
+      properties:
+        resourceId:
+          type: string
+        resourceActionId:
+          type: string
+        roleId:
+          type: string
+      example:
+        resourceId: xe8tdysl7tbsbus
+        resourceActionId: xe8t7qgl7tgfwr5
+        roleId: xe8t7qgl7tghosa
+    UpdatePermissionRequest:
+      title: UpdatePermissionRequest
+      required:
+      - resourceId
+      - resourceActionId
+      - roleId
+      type: object
+      properties:
+        resourceId:
+          type: string
+        resourceActionId:
+          type: string
+        roleId:
+          type: string
+      example:
+        resourceId: xe8tdysl7tbsbus
+        resourceActionId: xe8t7qgl7tgfwr5
+        roleId: xe8t7qgl7tghosa
+    CreateCompanyShareRequest:
+      title: CreateCompanyShareRequest
+      required:
+      - name
+      - companyId
+      - currentBalanceDerived
+      type: object
+      properties:
+        name:
+          type: string
+        companyId:
+          type: string
+        currentBalanceDerived:
+          type: integer
+          format: int32
+      example:
+        name: Company Share 1
+        companyId: xe8t7y0l7ta34oz
+        currentBalanceDerived: 100000
+    UpdateCompanyShareRequest:
+      title: UpdateCompanyShareRequest
+      required:
+      - name
+      - companyId
+      - currentBalanceDerived
+      type: object
+      properties:
+        name:
+          type: string
+        companyId:
+          type: string
+        currentBalanceDerived:
+          type: integer
+          format: int32
+      example:
+        name: Company Share 1
+        companyId: xe8t7y0l7ta34oz
+        currentBalanceDerived: 120000
+    CreateGenderRequest:
+      title: CreateGenderRequest
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Male
+    UpdateGenderRequest:
+      title: UpdateGenderRequest
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Males
+    CreateEmployeeRequest:
+      title: CreateEmployeeRequest
+      required:
+      - name
+      - email
+      - mobileNo
+      - dateOfBirth
+      - genderId
+      - companyId
+      - accountStatusId
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        mobileNo:
+          type: string
+        dateOfBirth:
+          type: string
+        genderId:
+          type: string
+        companyId:
+          type: string
+        accountStatusId:
+          type: integer
+          format: int32
+      example:
+        name: Employee 1
+        email: emp1@gmail.com
+        mobileNo: '0702090922'
+        dateOfBirth: Mon Aug 18 2014 21:11:54 GMT+0300 (East Africa Time)
+        genderId: xe8te1cl7uajqw2
+        companyId: xe8t7y0l7ta34oz
+        accountStatusId: 2
+    UpdateEmployeeRequest:
+      title: UpdateEmployeeRequest
+      required:
+      - name
+      - email
+      - mobileNo
+      - dateOfBirth
+      - genderId
+      - companyId
+      - accountStatusId
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        mobileNo:
+          type: string
+        dateOfBirth:
+          type: string
+        genderId:
+          type: string
+        companyId:
+          type: string
+        accountStatusId:
+          type: integer
+          format: int32
+      example:
+        name: Employee 1
+        email: emp1wiurw@gmail.com
+        mobileNo: '0702090922'
+        dateOfBirth: Mon Aug 18 2014 21:11:54 GMT+0300 (East Africa Time)
+        genderId: xe8te1cl7uajqw2
+        companyId: xe8t7y0l7ta34oz
+        accountStatusId: 2
+    CreateSchemeContributionOptionRequest:
+      title: CreateSchemeContributionOptionRequest
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Option 5
+    UpdateSchemeContributionOptionRequest:
+      title: UpdateSchemeContributionOptionRequest
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Option 1-1
+    CreateSchemeEligibilityTypeRequest:
+      title: CreateSchemeEligibilityTypeRequest
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Eligibility Type 5
+    UpdateSchemeEligibilityTypeRequest:
+      title: UpdateSchemeEligibilityTypeRequest
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Type 1-1
+    CreateShareTransactionTypeRequest:
+      title: CreateShareTransactionTypeRequest
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Sell
+    UpdateShareTransactionTypeRequest:
+      title: UpdateShareTransactionTypeRequest
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Buy 1
+    CreateSchemeCategoryRequest:
+      title: CreateSchemeCategoryRequest
+      required:
+      - name
+      - code
+      - companyId
+      - schemeEligibilityTypeId
+      - schemeContributionOptionId
+      - description
+      type: object
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+        companyId:
+          type: string
+        schemeEligibilityTypeId:
+          type: string
+        schemeContributionOptionId:
+          type: string
+        description:
+          type: string
+      example:
+        name: Scheme Category 1
+        code: '000111'
+        companyId: xe8t7y0l7ta34oz
+        schemeEligibilityTypeId: xe8tnysl7ukj6bw
+        schemeContributionOptionId: xe8thggl7uesl0o
+        description: test category 1
+    UpdateSchemeCategoryRequest:
+      title: UpdateSchemeCategoryRequest
+      required:
+      - name
+      - code
+      - companyId
+      - schemeEligibilityTypeId
+      - schemeContributionOptionId
+      - description
+      type: object
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+        companyId:
+          type: string
+        schemeEligibilityTypeId:
+          type: string
+        schemeContributionOptionId:
+          type: string
+        description:
+          type: string
+      example:
+        name: Scheme Category 1-1
+        code: '000111'
+        companyId: xe8t7y0l7ta34oz
+        schemeEligibilityTypeId: xe8tnysl7ukj6bw
+        schemeContributionOptionId: xe8thggl7uesl0o
+        description: test category 1
+    CreateSchemeRequest:
+      title: CreateSchemeRequest
+      required:
+      - name
+      - schemeCategoryId
+      - startDate
+      - endDate
+      type: object
+      properties:
+        name:
+          type: string
+        schemeCategoryId:
+          type: string
+        startDate:
+          type: string
+        endDate:
+          type: string
+      example:
+        name: Scheme 1
+        schemeCategoryId: xe8td90l7un9u9d
+        startDate: 2021-07-12 00:00:00
+        endDate: 2021-07-12 00:00:00
+    UpdateSchemeRequest:
+      title: UpdateSchemeRequest
+      required:
+      - name
+      - schemeCategoryId
+      - startDate
+      - endDate
+      type: object
+      properties:
+        name:
+          type: string
+        schemeCategoryId:
+          type: string
+        startDate:
+          type: string
+        endDate:
+          type: string
+      example:
+        name: Scheme 1-1
+        schemeCategoryId: xe8td90l7un9u9d
+        startDate: 2021-07-12 00:00:00
+        endDate: 2021-07-12 00:00:00
+    LoginRequest:
+      title: LoginRequest
+      required:
+      - email
+      - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: mum@gmail.com
+        password: password
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security: []
+tags:
+- name: Auth
+  description: ''
+- name: Users
+- name: Tenants
+- name: Account Statuses
+- name: Company Groups
+- name: Companies
+- name: Resources
+- name: Resource Actions
+- name: Roles
+- name: Permissions
+- name: Company Shares
+- name: Genders
+- name: Employees
+- name: Scheme Contribution Options
+- name: Scheme Eligibility Types
+- name: Share Transaction Types
+- name: Scheme Categories
+- name: Schemes
