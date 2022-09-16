@@ -1,5 +1,5 @@
 const { StatusCodes } = require("http-status-codes");
-const db = require("../connect/db");
+const db = require("../connect/heroku_db");
 const uniqid = require("uniqid");
 const date = require("date-and-time");
 
@@ -8,12 +8,10 @@ const getAllSchemeContributionOptions = async (req, res) => {
     const query = await db.query(
       `SELECT * FROM "Scheme Contribution Options" `
     );
-    res
-      .status(StatusCodes.OK)
-      .json({
-        count: query.rows.length,
-        schemeContributionOptions: query.rows,
-      });
+    res.status(StatusCodes.OK).json({
+      count: query.rows.length,
+      schemeContributionOptions: query.rows,
+    });
   } catch (error) {
     console.log(error);
   }
