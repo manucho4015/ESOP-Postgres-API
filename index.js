@@ -51,7 +51,7 @@ const schemesRouter = require("./routes/schemes");
 
 // endpoints provided
 app.use("/api/v1/login", authRouter);
-app.use("/api/v1/users", authenticationMiddleware, userRouter);
+app.use("/api/v1/users", userRouter);
 app.use("/api/v1/tenants", authenticationMiddleware, tenantsRouter);
 app.use(
   "/api/v1/account-statuses",
