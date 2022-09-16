@@ -31,7 +31,7 @@ const authenticationMiddleware = require("./middleware/authenticator");
 const errorHandlerMiddleware = require("./middleware/error-handler");
 
 app.get("/", (req, res) => {
-  res.send("<h1>ESOP Postgres API</h1><a href='api-docs'>Document</a>");
+  res.send("<h1>ESOP Postgres API</h1><a href='api-docs'>Documentation</a>");
 });
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
